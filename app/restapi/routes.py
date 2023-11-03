@@ -2,8 +2,14 @@ from app.restapi import blueprint
 from flask import request, current_app
 from werkzeug.utils import secure_filename
 
+@blueprint.route('/')
+def index():
+    return 'Hello Delta'
+
 @blueprint.route('/upload_raw', methods=['POST'])
 def upload_raw():
+    content_type = request.headers.get('Content-Type')
+
     if 'file' not in request.files:
         return 'No file part', 400 # Bad Request
     
