@@ -2,7 +2,7 @@ from app.restapi import blueprint
 from flask import request, current_app
 from werkzeug.utils import secure_filename
 
-@blueprint.route('/')
+@blueprint.route('/', methods=['GET'])
 def index():
     return 'Hello Delta'
 
